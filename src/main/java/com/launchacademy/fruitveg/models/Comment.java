@@ -22,7 +22,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Comment {
-
   @Id
   @SequenceGenerator(name = "comments_generator",
       sequenceName = "comments_id_seq", allocationSize = 1)
@@ -40,5 +39,4 @@ public class Comment {
   @ManyToOne
   @JoinColumn(name="produce_id")
   private Produce produce;
-
 }

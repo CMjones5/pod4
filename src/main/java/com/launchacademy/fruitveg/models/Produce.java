@@ -21,7 +21,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Produce {
-
   @Id
   @SequenceGenerator(name = "produce_generator",
       sequenceName = "produce_id_seq", allocationSize = 1)
@@ -44,7 +43,4 @@ public class Produce {
 
 @OneToMany(mappedBy = "produce")
   private Set<Comment> comments;
-
-
-
 }
