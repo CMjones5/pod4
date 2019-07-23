@@ -39,7 +39,7 @@ public class Produce {
   private String description;
 
   @Column(name = "food_type", nullable = false)
-  private String food_type;
+  private String foodType;
 
 @OneToMany(mappedBy = "produce")
   private Set<Comment> comments;
