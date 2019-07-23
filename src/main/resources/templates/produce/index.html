@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Home Page</title>
+</head>
+<body>
+<h2>List of Weird Fruits and Vegetables</h2>
+  <div th:each="product : ${produce}">
+    <div th:object="${product}">
+        <img th:src="@{${product.imageUrl}}" height="100" width="100">
+        <p th:text="*{name}"></p>
+        <p th:text="*{description}"></p>
+        <p th:text="*{foodType}"></p>
+    </div>
+  </div>
+</body>
+</html>
