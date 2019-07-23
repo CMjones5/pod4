@@ -3,7 +3,7 @@ id SERIAL PRIMARY KEY,
 image_url TEXT NOT NULL,
 name VARCHAR(255) NOT NULL,
 description TEXT NOT NULL,
-type VARCHAR(255) NOT NULL,
+food_type VARCHAR(255) NOT NULL,
 user_id INTEGER REFERENCES users(id)
 );
 

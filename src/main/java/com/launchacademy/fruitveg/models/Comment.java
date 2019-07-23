@@ -31,11 +31,11 @@ public class Comment {
   @Column(name = "id", nullable = false, unique = true)
   private Integer id;
 
-  @Column(name = "description", nullable = false, unique = true)
+  @Column(name = "description", nullable = false)
   private String description;
 
-  @Column(name = "rating", nullable = false, unique = true)
-  private String rating;
+  @Column(name = "rating", nullable = false)
+  private int rating;
 
   @ManyToOne
   @JoinColumn(name="produce_id")

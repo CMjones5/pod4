@@ -30,17 +30,17 @@ public class Produce {
   @Column(name = "id", nullable = false, unique = true)
   private Integer id;
 
-  @Column(name = "image_url", nullable = false, unique = true)
+  @Column(name = "image_url", nullable = false)
   private String imageUrl;
 
-  @Column(name = "name", nullable = false, unique = true)
+  @Column(name = "name", nullable = false)
   private String name;
 
-  @Column(name = "description", unique = true)
+  @Column(name = "description")
   private String description;
 
-  @Column(name = "type", nullable = false, unique = true)
-  private String type;
+  @Column(name = "food_type", nullable = false)
+  private String food_type;
 
 @OneToMany(mappedBy = "produce")
   private Set<Comment> comments;
