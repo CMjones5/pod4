@@ -36,7 +36,6 @@ public class ProduceController {
   @PostMapping("/new")
   public String create(@ModelAttribute @Valid Produce produce, BindingResult binding,
       Model model) {
-
     if (binding.hasErrors()) {
       return "produce/new";
     } else {
