@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/produce")
 public class ProduceController {
   private final ProduceRepository produceRepository;
 
@@ -23,11 +23,11 @@ public class ProduceController {
   }
   @GetMapping
   public String getIndex() {
-    return "produce/produceIndex";
+    return "produce/index";
   }
   @GetMapping("/{id}")
-  public String getId(@PathVariable Integer id) {
-    return "produce/produceShow";
+  public String produceShow (@PathVariable Integer id) {
+    return "produce/show";
   }
   @GetMapping("/new")
   public String getNewForm(@ModelAttribute Produce produce, Model model) {

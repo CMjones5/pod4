@@ -10,7 +10,8 @@ class ProduceShowContainer extends Component {
   }
 
   componentDidMount() {
-   let produceId = this.props.params.id
+   let pathname = window.location.pathname.split('/')
+   let produceId = pathname[pathname.length - 1];
   fetch(`/api/v1/produce/${produceId}`, {
     headers: {'Content-Type': "application/json"},
     credentials: 'same-origin'
