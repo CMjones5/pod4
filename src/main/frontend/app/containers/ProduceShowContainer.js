@@ -11,7 +11,7 @@ class ProduceShowContainer extends Component {
 
   componentDidMount() {
    let produceId = this.props.params.id
-  fetch(`/api/v1/produces/${produceId}`, {
+  fetch(`/api/v1/produce/${produceId}`, {
     headers: {'Content-Type': "application/json"},
     credentials: 'same-origin'
   })

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ProduceTile from '../components/ProduceTile';
 
 class ProduceContainer extends Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class ProduceContainer extends Component {
     })
   }
 
-  addNewproduce(formPayload) {
+  addNewProduce(formPayload) {
     fetch('/api/v1/produce', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
@@ -39,15 +40,16 @@ class ProduceContainer extends Component {
       })
   }
 
-
   render() {
-    let produce = this.state.produce.map(produce => {
+    let produce = this.state.produce.map(product => {
       return(
         <ProduceTile
-          key={produce.id}
-          id={produce.id}
-          title={produce.title}
-          content={produce.content}
+          key={product.id}
+          id={product.id}
+          imageUrl={product.imageUrl}
+          name={product.name}
+          foodType={product.foodType}
+          description={product.description}
         />
       )
     })
@@ -55,10 +57,9 @@ class ProduceContainer extends Component {
     return(
       <div className="row">
         <div className="small-8 small-centered columns">
-          <h1>My FOOD!</h1>
+          <h1>Weird Fruits and Vegetables</h1>
           <hr/>
           {produce}
-          <ProduceFormContainer addNewproduce={this.addNewproduce} />
         </div>
       </div>
     )
@@ -66,3 +67,5 @@ class ProduceContainer extends Component {
 }
 
 export default ProduceContainer;
+
+//Need to add to form: <ProduceFormContainer addNewproduce={this.addNewproduce} />
