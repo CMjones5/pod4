@@ -68,4 +68,3 @@ class ProduceContainer extends Component {
 
 export default ProduceContainer;
 
-//Need to add to form: <ProduceFormContainer addNewproduce={this.addNewproduce} />

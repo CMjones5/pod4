@@ -1,4 +1,4 @@
-/*import React from 'react';
+import React from 'react';
 
 class ProduceFormContainer extends Component {
     constructor(props) {
@@ -82,5 +82,4 @@ class ProduceFormContainer extends Component {
     }
   }
   
-  export default ProduceFormContainer;
-  */
+ export default ProduceFormContainer;
