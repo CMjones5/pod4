@@ -29,7 +29,6 @@ public class UsersController {
 
     return "security/registration";
   }
-
   @PostMapping("/registration")
   public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
     if (bindingResult.hasErrors()) {
@@ -42,7 +41,6 @@ public class UsersController {
 
     return "redirect:/welcome";
   }
-
   @GetMapping("/login")
   public String login(Model model, String error, String logout) {
     if (error != null)
@@ -53,11 +51,10 @@ public class UsersController {
 
     return "security/login";
   }
-
-  @GetMapping({"/", "/welcome"})
+  @GetMapping({"/welcome"})
   public String welcome(Model model, Authentication authentication) {
-//    org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)authentication.getPrincipal();
-//    model.addAttribute("username", user.getUsername());
+    org.springframework.security.core.userdetails.User user = (org.springframework.security.core.userdetails.User)authentication.getPrincipal();
+    model.addAttribute("username", user.getUsername());
     return "root/welcome";
   }
 }

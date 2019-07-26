@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:fragment="layout(template)">
+<head>
+  <title>Thymeleaf</title>
+</head>
+<body>
+<th:block th:include="${template}"/>
+<script src="/bundle.js"></script>
+</body>
+</html>

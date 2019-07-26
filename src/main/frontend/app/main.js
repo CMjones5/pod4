@@ -1,35 +1,15 @@
 import React from "react";
 import ReactDom from "react-dom";
+import ProduceContainer from "./containers/ProduceContainer";
+import ProduceShowContainer from "./containers/ProduceShowContainer";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      pets: []
-    }
-  }
-
-  componentDidMount() {
-    fetch("/api/v1/pets").then((resp) => {
-      if(resp.ok) {
-        return resp
-      }
-      else {
-        throw new Error(resp.Error)
-      }
-    }).then(resp => {
-      return resp.json();
-    }).then(petsPayload => {
-      this.setState({pets: petsPayload.content})
-    }) 
-  }
-
-  render() {
-    const petListItems = this.state.pets.map((pet) => {
-      return (<li><h2>{ pet.name }</h2><p>{ pet.species}</p></li>)
-    })
-    return (<ul>{petListItems}</ul>)
+const pageMap = {
+  "produce-index": ProduceContainer,
+  "produce-show": ProduceShowContainer
+}
+for(const domId in pageMap) {
+  if(document.getElementById(domId)) {
+    const Component = pageMap[domId]
+    ReactDom.render(<Component />,document.getElementById(domId))
   }
 }
-
-ReactDom.render(<App />,document.getElementById("app"))
