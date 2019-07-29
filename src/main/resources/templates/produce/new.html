@@ -6,7 +6,7 @@
 </head>
 <body>
 <h2>Please Enter your new Odd Fruit or Vegetable</h2>
-<form action="/new" method="POST" th:object="${produce}">
+<form action="/produce/new" method="POST" th:object="${produce}">
   <div>
     <label for="imageUrl">Image URL</label>
     <input type="text" id="imageUrl" th:field="*{imageUrl}">

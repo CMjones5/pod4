@@ -41,7 +41,7 @@ public class ProduceController {
       return "produce/new";
     } else {
       produceRepository.save(produce);
-      return "redirect:/index";
+      return "redirect:/produce";
     }
   }
 }
