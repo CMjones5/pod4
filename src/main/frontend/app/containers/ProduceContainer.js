@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProduceTile from '../components/ProduceTile';
+import { Grid, Cell, Thumbnail } from 'react-foundation';
 
 class ProduceContainer extends Component {
   constructor(props) {
@@ -55,14 +56,14 @@ class ProduceContainer extends Component {
     })
 
     return(
-      <div className="row">
-        <div className="small-8 small-centered columns">
-          <h1>Weird Fruits and Vegetables</h1>
-          <hr/>
-          {produce}
-        </div>
-      </div>
-    )
+      <div className="grid-block-example">
+      <Grid upOnSmall={1} upOnMedium={2} upOnLarge={4}>
+        <Cell isColumn>
+          <Thumbnail src={product.imageUrl} alt=""/>
+        </Cell>
+      </Grid>
+    </div>
+    )    
   }
 }
 
