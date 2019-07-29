@@ -34,7 +34,7 @@ public class Comment {
   private String description;
 
   @Column(name = "rating", nullable = false)
-  private int rating;
+  private Integer rating;
 
   @ManyToOne
   @JoinColumn(name="produce_id")

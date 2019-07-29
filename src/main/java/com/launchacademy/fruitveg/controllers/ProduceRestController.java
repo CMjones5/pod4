@@ -1,5 +1,7 @@
 package com.launchacademy.fruitveg.controllers;
+import com.launchacademy.fruitveg.models.Comment;
 import com.launchacademy.fruitveg.models.Produce;
+import com.launchacademy.fruitveg.repositories.CommentRepository;
 import com.launchacademy.fruitveg.repositories.ProduceRepository;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +22,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping()
 public class ProduceRestController {
   private final ProduceRepository produceRepository;
+  private final CommentRepository commentRepository;
 
   @Autowired
-  public ProduceRestController(ProduceRepository produceRepository) {
+  public ProduceRestController(ProduceRepository produceRepository, CommentRepository commentRepository) {
     this.produceRepository = produceRepository;
+    this.commentRepository = commentRepository;
   }
 
   @NoArgsConstructor
@@ -49,5 +53,13 @@ public class ProduceRestController {
   @PostMapping("/api/v1/produce")
   public Produce addProduce(@RequestBody Produce produce) {
     return produceRepository.save(produce);
+  }
+  @GetMapping("api/v1/comments")
+  public Iterable<Comment> jsonCommentsShow() {
+    return commentRepository.findAll();
+  }
+  @PostMapping("/api/v1/comments")
+  public Comment addComment(@RequestBody Comment comment) {
+    return commentRepository.save(comment);
   }
 }
