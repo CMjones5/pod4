@@ -25,6 +25,7 @@ class ProduceShowContainer extends Component {
         })
     })
   }
+
   componentDidMount() {
    let pathname = window.location.pathname.split('/')
    let produceId = pathname[pathname.length - 1];
@@ -56,23 +57,29 @@ class ProduceShowContainer extends Component {
       }
     })
     .then(payload => {
-    //      let itemComments =
+          let itemComments =
       this.setState({comments: payload})
     })
   }
 
 
   render() {
-    let comments = this.state.comments.map(comment => {
-         return(
-           <CommentTile
-             key={comment.id}
-             id={comment.id}
-             description={comment.description}
-             rating={comment.rating}
-           />
-         )
-       })
+    let pathname = window.location.pathname.split('/')
+    let produceId = pathname[pathname.length - 1];
+    let comments = this.state.comments
+    console.log(comments)
+//.map(comment => {
+//    if(comment.produce_id == produceId) {
+//         return(
+//           <CommentTile
+//             key={comment.id}
+//             id={comment.id}
+//             description={comment.description}
+//             rating={comment.rating}
+//           />
+//         )
+//         }
+//       })
    return(
       <div>
       <div>
