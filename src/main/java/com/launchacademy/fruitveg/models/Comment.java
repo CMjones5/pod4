@@ -1,6 +1,7 @@
 package com.launchacademy.fruitveg.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,6 +37,7 @@ public class Comment {
   @Column(name = "rating", nullable = false)
   private Integer rating;
 
+  @JsonBackReference
   @ManyToOne
   @JoinColumn(name="produce_id")
   private Produce produce;

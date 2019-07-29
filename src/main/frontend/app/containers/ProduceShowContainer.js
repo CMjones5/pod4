@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProduceShow from '../components/ProduceShow';
 import CommentContainer from './CommentContainer';
+import CommentTile from '../components/CommentTile';
 
 class ProduceShowContainer extends Component {
   constructor(props) {
@@ -48,18 +49,14 @@ class ProduceShowContainer extends Component {
     })
   .then(resp => {
       if (resp.ok) {
-      console.log("HELLO KATHY")
-      console.log(resp.json())
-        //return resp
+        return resp.json()
       }
       else {
-      console.log("NOOOOOOOOOOOOOO")
         throw new Error(resp.body)
       }
     })
     .then(payload => {
-    console.log("SETTING THE COMMENTS")
-//      let itemComments =
+    //      let itemComments =
       this.setState({comments: payload})
     })
   }
