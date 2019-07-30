@@ -1,7 +1,9 @@
 package com.launchacademy.fruitveg.models;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,11 +18,13 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "comments")
 @Getter
 @Setter
+@ToString
 public class Comment {
   @Id
   @SequenceGenerator(name = "comments_generator",
@@ -34,9 +38,10 @@ public class Comment {
   private String description;
 
   @Column(name = "rating", nullable = false)
-  private int rating;
+  private Integer rating;
 
-  @ManyToOne
-  @JoinColumn(name="produce_id")
-  private Produce produce;
+  @JsonBackReference
+  @ManyToOne(cascade = CascadeType.MERGE)
+  @JoinColumn(name = "produce_id")
+  public Produce produce;
 }

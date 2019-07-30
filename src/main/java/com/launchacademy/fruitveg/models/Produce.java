@@ -15,11 +15,13 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "produce")
 @Getter
 @Setter
+@ToString
 public class Produce {
   @Id
   @SequenceGenerator(name = "produce_generator",
