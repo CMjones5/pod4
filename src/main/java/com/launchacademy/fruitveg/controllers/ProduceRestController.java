@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -53,5 +54,10 @@ public class ProduceRestController {
   @PostMapping("/api/v1/produce")
   public Produce addProduce(@RequestBody Produce produce) {
     return produceRepository.save(produce);
+  }
+  @DeleteMapping("api/v1/produce/{id}")
+  public ResponseEntity<?> deleteProduce(@PathVariable Integer id) {
+    produceRepository.deleteById(id);
+    return ResponseEntity.ok().build();
   }
 }
