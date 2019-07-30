@@ -1,17 +1,19 @@
 import React from 'react';
 
 const CommentRatingField = (props) => {
-  return(
-    <label>{props.label}
-    <select value={props.value} onChange={props.handleRatingChange}>
-          <option value="1">Abysmal</option>
-          <option value="2">Modest</option>
-          <option value="3">Respectable</option>
-          <option value="4">Superior</option>
-          <option value="5">Extraordinary</option>
+  let optionElements = props.options.map(option =>{
+      return (
+        <option key={option} value={option}>{option}</option>
+      );
+  })
+  return (
+      <label>{props.label}
+        <select name={props.name} value={props.selectedOption} onChange={props.handleRatingChange}>
+          <option value=""></option>
+          {optionElements}
         </select>
-    </label>
-  )
-}
+      </label>
+    );
+  }
 
 export default CommentRatingField;

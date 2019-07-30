@@ -54,12 +54,4 @@ public class ProduceRestController {
   public Produce addProduce(@RequestBody Produce produce) {
     return produceRepository.save(produce);
   }
-  @GetMapping("api/v1/comments")
-  public Iterable<Comment> jsonCommentsShow() {
-    return commentRepository.findAll();
-  }
-  @PostMapping("/api/v1/comments")
-  public Comment addComment(@RequestBody Comment comment) {
-    return commentRepository.save(comment);
-  }
 }

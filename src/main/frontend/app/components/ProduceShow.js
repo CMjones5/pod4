@@ -8,7 +8,6 @@ const ProduceShow = (props) => {
       <img src={props.imageUrl} height="100" width="100" />
       <p>{props.description}</p>
       <p>{props.foodType}</p>
-      <a href='new'>Add New Item</a>
     </div>
   )
 }

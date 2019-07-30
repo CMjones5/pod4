@@ -7,13 +7,20 @@ class CommentContainer extends React.Component {
       super(props)
       this.state = {
         description: '',
-        rating: ''
+        rating: '',
+        commentOptions: [1, 2, 3, 4, 5]
       }
       this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
-      this.handleRatingChange
-       = this.handleRatingChange
-       .bind(this)
+      this.handleRatingChange= this.handleRatingChange.bind(this)
       this.handleSubmit = this.handleSubmit.bind(this)
+      this.handleClearForm = this.handleClearForm.bind(this)
+    }
+
+    handleClearForm(event) {
+    event.preventDefault()
+    this.setState({
+    description: '',
+    rating: ''})
     }
 
     handleDescriptionChange(event) {
@@ -30,7 +37,7 @@ class CommentContainer extends React.Component {
     }
     handleSubmit(event) {
       event.preventDefault()
-      this.props.addNewComment(this.state)
+      this.props.addNewComment({produce:this.props.produce, description:this.state.description, rating:this.state.rating})
       this.setState({ description: '', rating: ''})
     }
 
@@ -49,9 +56,10 @@ class CommentContainer extends React.Component {
             label="comment rating"
             name="comment-rating"
             handleRatingChange={this.handleRatingChange}
+            options={this.state.commentOptions}
           />
           <div className="button-group">
-            <button className="button">Clear</button>
+            <button className="button" onClick={this.handleClearForm}>Clear</button>
             <input className="button" type="submit" value="Submit" />
           </div>
         </form>

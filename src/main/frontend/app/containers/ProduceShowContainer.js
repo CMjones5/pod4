@@ -44,10 +44,10 @@ class ProduceShowContainer extends Component {
   .then(payload => {
     this.setState({produce: payload})
   })
-  fetch(`/api/v1/comments`, {
-      headers: {'Content-Type': "application/json"},
-      credentials: 'same-origin'
-    })
+  fetch(`/api/v1/comments/${produceId}`, {
+    headers: {'Content-Type': "application/json"},
+    credentials: 'same-origin'
+  })
   .then(resp => {
       if (resp.ok) {
         return resp.json()
@@ -57,29 +57,23 @@ class ProduceShowContainer extends Component {
       }
     })
     .then(payload => {
-          let itemComments =
-      this.setState({comments: payload})
+        this.setState({comments: payload})
     })
   }
-
 
   render() {
     let pathname = window.location.pathname.split('/')
     let produceId = pathname[pathname.length - 1];
-    let comments = this.state.comments
-    console.log(comments)
-//.map(comment => {
-//    if(comment.produce_id == produceId) {
-//         return(
-//           <CommentTile
-//             key={comment.id}
-//             id={comment.id}
-//             description={comment.description}
-//             rating={comment.rating}
-//           />
-//         )
-//         }
-//       })
+    let comments = this.state.comments.map(comment => {
+         return(
+           <CommentTile
+             key={comment.id}
+             id={comment.id}
+             description={comment.description}
+             rating={comment.rating}
+           />
+         )
+       })
    return(
       <div>
       <div>
@@ -96,7 +90,9 @@ class ProduceShowContainer extends Component {
       <div>
       <CommentContainer
         addNewComment = {this.addNewComment}
+        produce = {this.state.produce}
       />
+      <a href='new'>Add New Item</a>
      </div>
      </div>
     )
