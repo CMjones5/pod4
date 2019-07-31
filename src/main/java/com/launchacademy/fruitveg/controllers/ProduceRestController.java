@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -59,5 +61,18 @@ public class ProduceRestController {
   public ResponseEntity<?> deleteProduce(@PathVariable Integer id) {
     produceRepository.deleteById(id);
     return ResponseEntity.ok().build();
+  }
+  @PutMapping("produce/edit/{id}")
+  public ResponseEntity<?> editProduce(@RequestBody Produce produceDetails, @PathVariable Integer id) {
+//    produceRepository.deleteById(id);
+//    return ResponseEntity.ok().build();
+    // find that produce called produce
+    Produce produce = produceRepository.findById(id).orElseThrow(() -> new ProduceNotFoundException());
+    produce.setImageUrl(produceDetails.getImageUrl());
+    produce.setName(produceDetails.getName());
+    produce.setDescription(produceDetails.getDescription());
+    produce.setFoodType(produceDetails.getFoodType());
+     produceRepository.save(produce);
+    return ResponseEntity.ok(produce);
   }
 }

@@ -8,6 +8,7 @@
          <p>{props.description}</p>
          <p>{props.foodType}</p>
          <button id={props.id} onClick={props.onDeleteItem} className="button">Delete</button>
+         <button id={props.id} onClick={props.onEditItem} className="button">Edit</button>
      </div>
    )
  }

@@ -1,7 +1,7 @@
 import React from 'react';
 import InputField from '../components/InputField'
 
-class ProduceFormContainer extends React.Component {
+class EditFormContainer extends React.Component {
     constructor(props) {
       super(props)
       this.state = {
@@ -18,13 +18,13 @@ class ProduceFormContainer extends React.Component {
       this.handleProduceFoodTypeChange = this.handleProduceFoodTypeChange.bind(this)
       this.handleSubmit = this.handleSubmit.bind(this)
     }
-  
+
     handleProduceImageUrlChange(event) {
       this.setState({
         produceImageUrl: event.target.value
       })
     }
-  
+
     handleProduceNameChange(event) {
       this.setState({
         produceName: event.target.value
@@ -44,8 +44,10 @@ class ProduceFormContainer extends React.Component {
       }
 
     addNewProduce(formPayload) {
-      fetch('/api/v1/produce', {
-        method: 'POST',
+     let pathname = window.location.pathname.split('/')
+       let id = pathname[pathname.length - 1];
+      fetch(`/produce/edit/${id}`, {
+        method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         credentials: 'same-origin',
         body: JSON.stringify(formPayload)
@@ -61,6 +63,18 @@ class ProduceFormContainer extends React.Component {
       event.preventDefault()
       this.addNewProduce({imageUrl:this.state.produceImageUrl, name:this.state.produceName, description:this.state.produceDescription, foodType: this.state.produceFoodType})
       document.location.replace("/produce")
+    }
+
+    componentDidMount() {
+      let pathname = window.location.pathname.split('/')
+            let id = pathname[pathname.length - 1];
+            fetch(`/api/produce/${id}`, {
+              method: 'GET',
+              headers: {'Content-Type': 'application/json'},
+
+              credentials: 'same-origin',
+            })
+
     }
 
     render() {
@@ -91,7 +105,7 @@ class ProduceFormContainer extends React.Component {
             name="produce-foodType"
             onChange={this.handleProduceFoodTypeChange}
           />
-  
+
           <div className="button-group">
             <button className="button">Clear</button>
             <input className="button" type="submit" value="Submit" />
@@ -100,5 +114,5 @@ class ProduceFormContainer extends React.Component {
       )
     }
   }
-  
- export default ProduceFormContainer;
+
+ export default EditFormContainer;

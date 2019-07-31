@@ -7,8 +7,8 @@ class ProduceContainer extends Component {
     this.state = {
       produce: []
     }
-    this.addNewProduce = this.addNewProduce.bind(this)
     this.deleteProduce = this.deleteProduce.bind(this)
+    this.editProduce = this.editProduce.bind(this)
   }
 
   componentDidMount() {
@@ -27,6 +27,16 @@ class ProduceContainer extends Component {
     })
   }
 
+  editProduce(event) {
+    const id ="/produce/edit/" + event.target.id
+    document.location.replace(id)
+//    fetch(`/api/v1/produce/${id}`, {
+//      method: 'PUT',
+//      headers: {'Content-Type': 'application/json'},
+//      credentials: 'same-origin',
+//        }).then(res => return res)
+  }
+
   deleteProduce(event){
     const id = event.target.id
     fetch(`/api/v1/produce/${id}`, {
@@ -34,20 +44,6 @@ class ProduceContainer extends Component {
      headers: {'Content-Type': 'application/json'}
     })
     document.location.replace("/produce")
-  }
-
-  addNewProduce(formPayload) {
-    fetch('/api/v1/produce', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      credentials: 'same-origin',
-      body: JSON.stringify(formPayload)
-    })
-    .then (response => response.json())
-    .then(response => {
-      this.setState({produce: this.state.produce.concat(response.produce)
-        })
-      })
   }
 
   render() {
@@ -61,6 +57,7 @@ class ProduceContainer extends Component {
           foodType={product.foodType}
           description={product.description}
           onDeleteItem={this.deleteProduce}
+          onEditItem={this.editProduce}
         />
       )
     })
