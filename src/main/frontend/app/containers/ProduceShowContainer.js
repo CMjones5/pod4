@@ -77,6 +77,7 @@ class ProduceShowContainer extends Component {
          )
        })
    return(
+     <div>
     <div className="topnav">
     <a className="home" href="/produce">Home</a>
     <a className="add-new" href="/produce/new">Add New Funny Produce</a>
@@ -100,6 +101,7 @@ class ProduceShowContainer extends Component {
         addNewComment = {this.addNewComment}
         produce = {this.state.produce}
       />
+      </div>
       </div>
     )
   }
