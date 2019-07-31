@@ -64,15 +64,6 @@ class ProduceShowContainer extends Component {
   }
 
   render() {
-    return(
-      <div>
-      <div className="topnav">
-      <a className="home" href="/produce">Home</a>
-      <a className="add-new" href="/produce/new">Add New Funny Produce</a>
-      <a className="login" href="/login">Sign In</a>
-      <a className="sign-up" href="/registration">Sign Up</a>
-    </div>
-    <hr/>
     let pathname = window.location.pathname.split('/')
     let produceId = pathname[pathname.length - 1];
     let comments = this.state.comments.map(comment => {
@@ -86,7 +77,13 @@ class ProduceShowContainer extends Component {
          )
        })
    return(
-      <div>
+    <div className="topnav">
+    <a className="home" href="/produce">Home</a>
+    <a className="add-new" href="/produce/new">Add New Funny Produce</a>
+    <a className="login" href="/login">Sign In</a>
+    <a className="sign-up" href="/registration">Sign Up</a>
+  </div>
+    <hr/>
       <div>
       <ProduceShow
            id={this.state.produce.id}
