@@ -9,6 +9,7 @@ class ProduceContainer extends Component {
       produce: []
     }
     this.addNewProduce = this.addNewProduce.bind(this)
+    this.deleteProduce = this.deleteProduce.bind(this)
   }
 
   componentDidMount() {
@@ -25,6 +26,15 @@ class ProduceContainer extends Component {
     .then(payload => {
       this.setState({produce: payload})
     })
+  }
+
+  deleteProduce(event){
+    const id = event.target.id
+    fetch(`/api/v1/produce/${id}`, {
+     method: 'DELETE',
+     headers: {'Content-Type': 'application/json'}
+    })
+    document.location.replace("/produce")
   }
 
   addNewProduce(formPayload) {
@@ -48,6 +58,8 @@ class ProduceContainer extends Component {
           key={product.id}
           id={product.id}
           imageUrl={product.imageUrl}
+
+          onDeleteItem={this.deleteProduce}
         />
       )
     })

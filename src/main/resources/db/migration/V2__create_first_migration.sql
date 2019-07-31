@@ -9,7 +9,7 @@ user_id INTEGER REFERENCES users(id)
 
 CREATE TABLE comments(
 id SERIAL PRIMARY KEY,
-produce_id INTEGER REFERENCES produce(id),
+produce_id INTEGER REFERENCES produce(id) ON DELETE CASCADE,
 description TEXT,
 rating INTEGER NOT NULL
 );

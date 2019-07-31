@@ -2,6 +2,7 @@ package com.launchacademy.fruitveg.models;
 
 
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,11 +16,13 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "produce")
 @Getter
 @Setter
+@ToString
 public class Produce {
   @Id
   @SequenceGenerator(name = "produce_generator",
@@ -41,6 +44,6 @@ public class Produce {
   @Column(name = "food_type", nullable = false)
   private String foodType;
 
-@OneToMany(mappedBy = "produce")
+@OneToMany(mappedBy = "produce", orphanRemoval = true, cascade = CascadeType.ALL)
   private Set<Comment> comments;
 }
