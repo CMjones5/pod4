@@ -39,7 +39,7 @@ public class UsersController {
 
     securityService.autoLogin(userForm.getUsername(), userForm.getPassword());
 
-    return "redirect:/welcome";
+    return "redirect:/produce";
   }
   @GetMapping("/login")
   public String login(Model model, String error, String logout) {

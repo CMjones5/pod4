@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ProduceShow from '../components/ProduceShow';
+import "../../../resources/stylesheets/index.scss";
+
 import CommentContainer from './CommentContainer';
 import CommentTile from '../components/CommentTile';
 
@@ -75,7 +77,14 @@ class ProduceShowContainer extends Component {
          )
        })
    return(
-      <div>
+     <div>
+    <div className="topnav">
+    <a className="home" href="/produce">Home</a>
+    <a className="add-new" href="/produce/new">Add New Funny Produce</a>
+    <a className="login" href="/login">Sign In</a>
+    <a className="sign-up" href="/registration">Sign Up</a>
+  </div>
+    <hr/>
       <div>
       <ProduceShow
            id={this.state.produce.id}
@@ -92,9 +101,8 @@ class ProduceShowContainer extends Component {
         addNewComment = {this.addNewComment}
         produce = {this.state.produce}
       />
-      <a href='new'>Add New Item</a>
-     </div>
-     </div>
+      </div>
+      </div>
     )
   }
 }
