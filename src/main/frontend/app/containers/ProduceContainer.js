@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProduceTile from '../components/ProduceTile';
+import "../../../resources/stylesheets/index.scss";
 
 class ProduceContainer extends Component {
   constructor(props) {
@@ -53,9 +54,7 @@ class ProduceContainer extends Component {
           key={product.id}
           id={product.id}
           imageUrl={product.imageUrl}
-          name={product.name}
-          foodType={product.foodType}
-          description={product.description}
+
           onDeleteItem={this.deleteProduce}
           onEditItem={this.editProduce}
         />
@@ -63,12 +62,18 @@ class ProduceContainer extends Component {
     })
 
     return(
-      <div className="row">
-        <div className="small-8 small-centered columns">
-          <h1>Weird Fruits and Vegetables</h1>
+        <div>
+            <div className="topnav">
+              <a className="home" href="/produce">Home</a>
+              <a className="add-new" href="/produce/new">Add New Funny Produce</a>
+              <a className="login" href="/login">Sign In</a>
+              <a className="sign-up" href="/registration">Sign Up</a>
+            </div>
+          <h1 className="indexTitle">Weird Fruits and Vegetables</h1>
           <hr/>
+          <div className="container">
           {produce}
-        </div>
+          </div>
       </div>
     )
   }
