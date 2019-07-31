@@ -1,4 +1,6 @@
 import React from 'react';
+import "../../../resources/stylesheets/index.scss";
+
 
 class ProduceFormContainer extends Component {
     constructor(props) {
@@ -46,6 +48,13 @@ class ProduceFormContainer extends Component {
   
     render() {
       return(
+        <div>
+        <div className="topnav">
+        <a className="home" href="/produce">Home</a>
+        <a className="add-new" href="/produce/new">Add New Funny Produce</a>
+        <a className="login" href="/login">Sign In</a>
+        <a className="sign-up" href="/registration">Sign Up</a>
+      </div>
         <form onSubmit={this.handleSubmit}
         className="new-produce-form callout">
           <ImageUrlField
@@ -78,6 +87,7 @@ class ProduceFormContainer extends Component {
             <input className="button" type="submit" value="Submit" />
           </div>
         </form>
+        </div>
       )
     }
   }

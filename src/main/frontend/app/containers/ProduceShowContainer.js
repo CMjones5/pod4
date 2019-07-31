@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ProduceShow from '../components/ProduceShow';
+import "../../../resources/stylesheets/index.scss";
+
 
 class ProduceShowContainer extends Component {
   constructor(props) {
@@ -31,6 +33,14 @@ class ProduceShowContainer extends Component {
 
   render() {
     return(
+      <div>
+      <div className="topnav">
+      <a className="home" href="/produce">Home</a>
+      <a className="add-new" href="/produce/new">Add New Funny Produce</a>
+      <a className="login" href="/login">Sign In</a>
+      <a className="sign-up" href="/registration">Sign Up</a>
+    </div>
+    <hr/>
       <ProduceShow
         id={this.state.produce.id}
         name={this.state.produce.name}
@@ -38,6 +48,7 @@ class ProduceShowContainer extends Component {
         description={this.state.produce.description}
         foodType={this.state.produce.foodType}
       />
+      </div>
     )
   }
 }

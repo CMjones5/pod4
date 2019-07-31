@@ -1,14 +1,14 @@
 import React from 'react';
+import "../../../resources/stylesheets/index.scss";
+
 
 const ProduceShow = (props) => {
   return(
     <div className="produce-show">
-      <h2>Produce Show Page</h2>
       <h2>{props.name}</h2>
-      <img src={props.imageUrl} height="100" width="100" />
+      <img src={props.imageUrl} height="400" width="400" />
       <p>{props.description}</p>
       <p>{props.foodType}</p>
-      <a href='new'>Add New Item</a>
     </div>
   )
 }
