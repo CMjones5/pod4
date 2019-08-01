@@ -2,7 +2,6 @@ import React from 'react';
 import InputField from '../components/InputField'
 import "../../../resources/stylesheets/index.scss";
 
-
 class ProduceFormContainer extends React.Component {
     constructor(props) {
       super(props)
@@ -99,7 +98,6 @@ class ProduceFormContainer extends React.Component {
             name="produce-foodType"
             onChange={this.handleProduceFoodTypeChange}
           />
-  
           <div className="button-group">
             <button className="button">Clear</button>
             <input className="button" type="submit" value="Submit" />

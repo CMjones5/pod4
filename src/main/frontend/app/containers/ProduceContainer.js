@@ -31,11 +31,6 @@ class ProduceContainer extends Component {
   editProduce(event) {
     const id ="/produce/edit/" + event.target.id
     document.location.replace(id)
-//    fetch(`/api/v1/produce/${id}`, {
-//      method: 'PUT',
-//      headers: {'Content-Type': 'application/json'},
-//      credentials: 'same-origin',
-//        }).then(res => return res)
   }
 
   deleteProduce(event){
@@ -54,7 +49,6 @@ class ProduceContainer extends Component {
           key={product.id}
           id={product.id}
           imageUrl={product.imageUrl}
-
           onDeleteItem={this.deleteProduce}
           onEditItem={this.editProduce}
         />

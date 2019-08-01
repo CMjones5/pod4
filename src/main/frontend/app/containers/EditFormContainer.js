@@ -71,15 +71,12 @@ class EditFormContainer extends React.Component {
             fetch(`/api/produce/${id}`, {
               method: 'GET',
               headers: {'Content-Type': 'application/json'},
-
               credentials: 'same-origin',
             })
-
     }
 
     render() {
       return(
-
         <form onSubmit={this.handleSubmit} className="new-produce-form callout">
           <InputField
             value={this.state.produceImageUrl}
@@ -105,7 +102,6 @@ class EditFormContainer extends React.Component {
             name="produce-foodType"
             onChange={this.handleProduceFoodTypeChange}
           />
-
           <div className="button-group">
             <button className="button">Clear</button>
             <input className="button" type="submit" value="Submit" />

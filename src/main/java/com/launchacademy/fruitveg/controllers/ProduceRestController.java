@@ -64,9 +64,6 @@ public class ProduceRestController {
   }
   @PutMapping("produce/edit/{id}")
   public ResponseEntity<?> editProduce(@RequestBody Produce produceDetails, @PathVariable Integer id) {
-//    produceRepository.deleteById(id);
-//    return ResponseEntity.ok().build();
-    // find that produce called produce
     Produce produce = produceRepository.findById(id).orElseThrow(() -> new ProduceNotFoundException());
     produce.setImageUrl(produceDetails.getImageUrl());
     produce.setName(produceDetails.getName());
