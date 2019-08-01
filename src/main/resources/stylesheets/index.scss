@@ -60,6 +60,7 @@ html {
     background-color: #3f837a;
     text-align: inherit;
     display: block;
+    padding: 15px;
 }
 
 .container {
@@ -68,4 +69,41 @@ html {
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.labels {
+    margin: 1px 25px;
+    color: #2F4F4F;
+    flex-wrap: wrap;
+    align-items: left;
+    justify-content: space-evenly;
+    font-family: fantasy;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.button {
+   margin: 20px;
+   font-size: 25px;
+   &:hover {
+       cursor: pointer;
+       color: forestgreen;
+   }
+
+}
+
+.new-produce-form {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+body {
+    margin: 0;
+}
+
+.formpage-div {
+    display: flex;
+    justify-content: left;
 }

@@ -73,6 +73,7 @@ class ProduceFormContainer extends React.Component {
         <a className="login" href="/login">Sign In</a>
         <a className="sign-up" href="/registration">Sign Up</a>
       </div>
+      <div className="formpage-div">
            <form onSubmit={this.handleSubmit} className="new-produce-form callout">
           <InputField
             value={this.state.produceImageUrl}
@@ -100,9 +101,11 @@ class ProduceFormContainer extends React.Component {
           />
           <div className="button-group">
             <button className="button">Clear</button>
-            <input className="button" type="submit" value="Submit" />
+            <button className="button" type="submit" value="Submit"> Submit </button>
           </div>
         </form>
+          <img className="stupid-eggplant" src="https://static.boredpanda.com/blog/wp-content/uploads/2014/03/funny-shaped-vegetables-fruits-8.jpg" />
+        </div>
         </div>
       )
     }
