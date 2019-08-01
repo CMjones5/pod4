@@ -43,8 +43,12 @@ public class ProduceController {
       return "produce/new";
     } else {
       produceRepository.save(produce);
-      return "redirect:/produce";
+      return "produce/index";
     }
+  }
+  @GetMapping("/edit/{id}")
+  public String updateProduce(@PathVariable Integer id) {
+    return "produce/edit";
   }
 
 }

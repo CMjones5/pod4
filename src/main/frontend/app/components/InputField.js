@@ -1,16 +1,16 @@
 import React from 'react';
 
-const CommentDescriptionField = (props) => {
+const InputField = (props) => {
   return(
     <label>{props.label}
     <input
       name={props.name}
       type='text'
       value={props.value}
-      onChange={props.handleDescriptionChange}
+      onChange={props.onChange}
      />
     </label>
   )
 }
 
-export default CommentDescriptionField;
+export default InputField;

@@ -1,5 +1,5 @@
 import React from 'react';
-import CommentDescriptionField from '../components/CommentDescriptionField'
+import InputField from '../components/InputField'
 import CommentRatingField from '../components/CommentRatingField'
 
 class CommentContainer extends React.Component {
@@ -35,6 +35,7 @@ class CommentContainer extends React.Component {
         rating: event.target.value
       })
     }
+
     handleSubmit(event) {
       event.preventDefault()
       this.props.addNewComment({produce:this.props.produce, description:this.state.description, rating:this.state.rating})
@@ -45,7 +46,7 @@ class CommentContainer extends React.Component {
       return(
         <form onSubmit={this.handleSubmit}
         className="new-comment-form callout">
-          <CommentDescriptionField
+          <InputField
             value={this.state.description}
             label="comment description"
             name="comment-description"
