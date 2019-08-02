@@ -1,3 +1,49 @@
+# Weird Fruits and Vegetables App
+
+This application displays interesting and unusual fruits and vegetables to delight and amaze.
+
+## Authors
+    * Nathan Devereaux
+    * Christian Jones
+    * Kathleen Sheldon
+    * Arien Woodrow
+
+## Heroku Link
+    https://spoonbeams.herokuapp.com/produce
+    
+## Features
+    This application is a basic Java and Spring Boot app with React implementing authentication, authorization, 
+    and CRUD. It allows a user to create an account and sign in. They can view all of the submitted unique and 
+    unusual fruits and vegetables. In addition they can add, delete, comment, and edit fruit and vegetable 
+    items, comments, and ratings. If they delete a fruit/vegetable item all of its related comments and ratings 
+    are removed from the database. 
+## Technologies
+    *Java
+    *Spring Boot
+    *Spring Security
+    *React
+    *ThymeLeaf
+    *Lombok
+    *Flyway
+    *Postgres Sql
+    *HTML
+    *SASS
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Giant Leap
 
 Giant Leap is a Maven Archetype for the "Launch Academy Way" of building Spring Boot Applications.
